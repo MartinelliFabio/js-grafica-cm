@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(1, 61, 1);
+}
+
+header, footer {
+    background-color: black;
+    height: 80px;
+}
+
+main {
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(5, 168, 5);
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.green {
+    background-color: aqua;
+}
+
+.red {
+    background-color: red;
+}
