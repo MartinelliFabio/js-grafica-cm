@@ -13,6 +13,9 @@
 // Prendo il bottone play
 const playBUTTON = document.getElementById('play');
 
+// Prendo il div che starà sopra il main dopo aver perso
+const containeMsgHTML = document.getElementById('container-msg');
+
 function play() {
     console.log('Inizio gioco...');
     const NUM_BOMB = 16;
@@ -20,11 +23,16 @@ function play() {
     let numCell;
     const fieldGame = document.getElementById('field-game');
     fieldGame.innerHTML = '';
+    
+    // proprietà per aggiungere le classi ad ogni click del bottone play
+    containeMsgHTML.className = 'container-pop-up invisible';
     const levelHTML = document.getElementById('livello');
     const level = levelHTML.value;
     switch(level) {
+        case '0':
+            alert('Devi selezionare un livello di difficoltà!');
+            return;
         case '1':
-        default:
             numCell = 100;
             break;
         case '2':
@@ -35,6 +43,7 @@ function play() {
             break;
     }
 
+    // Funzione per far sparire il titolo dopo aver cliccato play
     function titleDisappear() {
         const titleHTML = document.getElementById('title');
         titleHTML.classList = 'd-none';
@@ -49,7 +58,7 @@ function play() {
         cell.style.width = `calc(100% / ${cellPerSide})`;
         cell.style.height = `calc(100% / ${cellPerSide})`;
         cell.innerHTML = `
-            <span>${num}</span>
+            <span></span>
         `;
 
         if(bombsPosition.includes(num)) {
@@ -57,12 +66,15 @@ function play() {
             cell.addEventListener('click', function() {
                 const arrBomb = document.querySelectorAll('.bomb');
                 for(let i = 0; i < arrBomb.length; i++) {
-                    arrBomb[i].classList.add('red');
+                    arrBomb[i].classList.add('bomba');
                 }
+                // proprietà per far apparire il messaggio di Game Over
+                containeMsgHTML.className = 'container-pop-up visible';
+                document.getElementById('msg').innerHTML = 'Game Over! Riprova di nuovo!'
             });
             } else {
                 cell.addEventListener('click', function() {
-                    this.classList.add('green');
+                    this.classList.add('right');
                 });
             }
             return cell;

@@ -11,27 +11,42 @@
 </head>
 <body>
 
+<!-- Div con class vh-100 per prendere tutta la pagina -->
 <div class="vh-100">
-    <header class="d-flex justify-content-around align-items-center text-white">
-        <h3>Campo Minato</h3>
+    <!-- Header -->
+    <header class="d-flex justify-content-around align-items-center">
+        <a href="#" class=""><h2 class="fw-bold"><img src="./img/Logo.png" alt="Logo" class="me-3">Campo Minato</h2></a>
+        <!-- Sezione per la scelta della difficoltà -->
         <div class="d-flex">
-            <select name="" id="livello" class="rounded-2">
+            <select name="livello" id="livello" class="rounded-2 px-2">
+                <option value="0">---</option>
                 <option value="1">Easy</option>
                 <option value="2">Hard</option>
                 <option value="3">Crazy</option>
             </select>
-            <button class="btn btn-secondary ms-1" id="play">Play</button>
+            <button class="rounded-2 ms-1 px-4 py-1 fw-bold text-white" id="play">Play</button>
         </div>
     </header>
+
+    <!-- Main -->
     <main class="d-flex justify-content-center align-items-center">
 
-        <h1 id="title" class="text-white text-center p-3"> Select a level and click play to begin!</h1>
-        <div id="field-game" class="d-flex justify-content-center align-items-center">
-            
+        <!-- Sezione del messaggio di Game over e del div che andrò a coprire la sezione principale -->
+        <div class="container-pop-up invisible" id="container-msg">
+            <div class="pop-up d-flex justify-content-center align-items-center">
+                <div id="msg" class="fw-bold fs-5"></div>
+            </div>
         </div>
+        <h1 id="title" class="text-white text-center p-3 fw-bold display-4 text-uppercase"> Select a level and click play to begin!</h1>
+        
+        <!-- Div del gioco -->
+        <div id="field-game" class="d-flex justify-content-center align-items-center">
+    
     </main>
-    <footer>
 
+    <!-- Footer -->
+    <footer class="d-flex justify-content-center align-items-center">
+        <span class="fw-bold">Made By <a href="https://github.com/MartinelliFabio">Fabio Martinelli</a> - Boolean</span>
     </footer>
 
 </div>

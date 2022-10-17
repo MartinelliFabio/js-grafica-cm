@@ -1,7 +1,9 @@
+// Funzione per creare numeri random
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+// Funzione per prendere i numeri pari e dispari
 function isEven(num){
     if(num % 2 === 0){
         return true;
@@ -10,6 +12,7 @@ function isEven(num){
     }
 }
 
+// Funzione per far apparire messaggi di errore
 function notificationError(msgError){
     const alerta = document.createElement('div');
     alerta.className='alert alert-danger';
