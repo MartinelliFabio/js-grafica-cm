@@ -35,6 +35,11 @@ function play() {
             break;
     }
 
+    function titleDisappear() {
+        const titleHTML = document.getElementById('title');
+        titleHTML.classList = 'd-none';
+    }
+
 
     // funzione che genera la cella
     function drawCell(num) {
@@ -47,15 +52,21 @@ function play() {
             <span>${num}</span>
         `;
 
-        cell.addEventListener('click', function() {
-            if(bombsPosition.includes(num)) {
-                this.classList.add('red');
+        if(bombsPosition.includes(num)) {
+            cell.classList.add('bomb');
+            cell.addEventListener('click', function() {
+                const arrBomb = document.querySelectorAll('.bomb');
+                for(let i = 0; i < arrBomb.length; i++) {
+                    arrBomb[i].classList.add('red');
+                }
+            });
             } else {
-                this.classList.add('green');
+                cell.addEventListener('click', function() {
+                    this.classList.add('green');
+                });
             }
-        });
-        return cell;
-    }
+            return cell;
+        }
 
     while(bombsPosition.length < NUM_BOMB) {
         const bomb = randomNumber(1, numCell);
@@ -77,6 +88,7 @@ function play() {
     }
     // chiamo la funzione
     drawGrid();
+    titleDisappear();
 }
 // attacco event listener al bottono play
 playBUTTON.addEventListener('click', play);
